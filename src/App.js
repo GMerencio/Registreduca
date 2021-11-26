@@ -14,6 +14,7 @@ import { Horarios } from './pages/Horarios';
 import { ListarProfessores } from './pages/ListarProfessores';
 import { ListarDisciplinas } from './pages/ListarDisciplinas';
 import { ListarTurmas } from './pages/ListarTurmas';
+import { Professor } from './pages/Professor';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path="/listar-professores" component={ListarProfessores} />
           <Route path="/listar-disciplinas" component={ListarDisciplinas} />
           <Route path="/listar-turmas" component={ListarTurmas} />
+          <Route path="/professor" component={Professor} />
         </Switch>
       </Router>
     </div>

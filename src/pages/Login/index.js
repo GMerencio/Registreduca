@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import './style.css';
 
 export const Login = () => {
@@ -17,7 +19,7 @@ export const Login = () => {
             		<input id="password" type="password" placeholder="Senha" />
 		
         		
-            		<input type="submit" value="Continuar" />
+            		<Link to="/home"><input type="submit" value="Continuar" /></Link>
 		
             		<p>Uma conta no <b>RegistrEduca</b>
                 		&nbsp;garante que o professor não perca

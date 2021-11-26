@@ -1,0 +1,10 @@
+table#tabelaspec {
+	border: 1px solid #000000;
+	border-spacing: 0px;
+	flex-shrink:0;
+	float: left
+}
+
+table#tabelaspec td {
+	border: 1px solid #000000;
+}
