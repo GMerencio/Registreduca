@@ -25,7 +25,7 @@ export class Header extends React.Component {
             <a href="#">PROFESSORES</a>
             <i class='bx bxs-chevron-down htmlcss-arrow arrow'></i>
             <ul class="htmlCss-sub-menu sub-menu">
-              <li><Link to="/Professor">MARIA</Link></li>
+              <li><Link to="/professor">MARIA</Link></li>
               <li><a href="#">JOAO</a></li>
               <li><a href="#">JOSE</a></li>
             </ul>
@@ -113,12 +113,6 @@ export class Header extends React.Component {
 	moreArrow.onclick = function () {
   		navLinks.classList.toggle("show2");
   		navLinks.classList.toggle("show3");
-	}
-	
-	let jsArrow = document.querySelector(".js-arrow");
-	jsArrow.onclick = function () {
-  		navLinks.classList.toggle("show3");
-  		navLinks.classList.toggle("show2");
 	}
   }
 };
