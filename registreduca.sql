@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.5
+-- version 4.9.5deb2
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 26, 2021 at 04:22 PM
--- Server version: 10.5.12-MariaDB
--- PHP Version: 7.3.32
+-- Generation Time: Nov 27, 2021 at 04:39 AM
+-- Server version: 8.0.27-0ubuntu0.20.04.1
+-- PHP Version: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -31,15 +31,49 @@ USE `registreduca`;
 --
 
 CREATE TABLE `aulas` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `inicio` datetime NOT NULL,
   `fim` datetime NOT NULL,
-  `intervalo` tinyint(1) NOT NULL DEFAULT 0,
+  `intervalo` tinyint(1) NOT NULL DEFAULT '0',
   `presenca` tinyint(1) DEFAULT NULL,
-  `professor_id` int(11) NOT NULL,
-  `substituto_id` int(11) DEFAULT NULL,
-  `turma_id` int(11) NOT NULL
+  `professor_id` int NOT NULL,
+  `substituto_id` int DEFAULT NULL,
+  `turma_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `aulas`
+--
+
+INSERT INTO `aulas` (`id`, `inicio`, `fim`, `intervalo`, `presenca`, `professor_id`, `substituto_id`, `turma_id`) VALUES
+(1, '2021-11-29 07:00:00', '2021-11-29 07:45:00', 0, 1, 1, NULL, 1),
+(2, '2021-11-29 07:45:00', '2021-11-29 08:30:00', 0, 1, 1, NULL, 1),
+(3, '2021-11-29 08:30:00', '2021-11-29 09:15:00', 0, 1, 2, NULL, 1),
+(4, '2021-11-29 09:15:00', '2021-11-29 10:00:00', 0, 1, 3, NULL, 1),
+(5, '2021-11-29 10:00:00', '2021-11-29 10:20:00', 1, 1, 3, NULL, 1),
+(6, '2021-11-29 10:20:00', '2021-11-29 11:05:00', 0, 1, 3, NULL, 1),
+(7, '2021-11-29 11:05:00', '2021-11-29 11:50:00', 0, 0, 4, 1, 1),
+(8, '2021-11-30 07:00:00', '2021-11-30 07:45:00', 0, NULL, 4, NULL, 1),
+(9, '2021-11-30 07:45:00', '2021-11-30 08:30:00', 0, NULL, 3, NULL, 1),
+(10, '2021-11-30 08:30:00', '2021-11-30 09:15:00', 0, NULL, 3, NULL, 1),
+(11, '2021-11-30 09:15:00', '2021-11-30 10:00:00', 0, NULL, 2, NULL, 1),
+(12, '2021-11-30 10:00:00', '2021-11-30 10:20:00', 1, NULL, 2, NULL, 1),
+(13, '2021-11-30 10:20:00', '2021-11-30 11:05:00', 0, NULL, 1, NULL, 1),
+(14, '2021-11-30 11:05:00', '2021-11-30 11:50:00', 0, NULL, 5, NULL, 1),
+(15, '2021-11-29 13:40:00', '2021-11-29 14:25:00', 0, 1, 5, NULL, 2),
+(16, '2021-11-29 14:25:00', '2021-11-29 15:10:00', 0, 1, 5, NULL, 2),
+(17, '2021-11-29 15:10:00', '2021-11-29 15:55:00', 0, 1, 2, NULL, 2),
+(18, '2021-11-29 15:55:00', '2021-11-29 16:40:00', 0, 1, 1, NULL, 2),
+(19, '2021-11-29 16:40:00', '2021-11-29 17:00:00', 1, 1, 6, NULL, 2),
+(20, '2021-11-29 17:00:00', '2021-11-29 17:45:00', 0, 1, 7, NULL, 2),
+(21, '2021-11-29 17:45:00', '2021-11-29 18:30:00', 0, 1, 3, NULL, 2),
+(22, '2021-11-30 13:40:00', '2021-11-30 14:25:00', 0, NULL, 1, NULL, 2),
+(23, '2021-11-30 14:25:00', '2021-11-30 15:10:00', 0, NULL, 1, NULL, 2),
+(24, '2021-11-30 15:10:00', '2021-11-30 15:55:00', 0, NULL, 7, NULL, 2),
+(25, '2021-11-30 15:55:00', '2021-11-30 16:40:00', 0, NULL, 7, NULL, 2),
+(26, '2021-11-30 16:40:00', '2021-11-30 17:00:00', 1, NULL, 2, NULL, 2),
+(27, '2021-11-30 17:00:00', '2021-11-30 17:45:00', 0, NULL, 2, NULL, 2),
+(28, '2021-11-30 17:45:00', '2021-11-30 18:30:00', 0, NULL, 3, NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -48,8 +82,8 @@ CREATE TABLE `aulas` (
 --
 
 CREATE TABLE `professores` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+  `id` int NOT NULL,
+  `nome` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -77,9 +111,9 @@ INSERT INTO `professores` (`id`, `nome`) VALUES
 --
 
 CREATE TABLE `turmas` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `periodo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+  `id` int NOT NULL,
+  `nome` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `periodo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -88,7 +122,9 @@ CREATE TABLE `turmas` (
 
 INSERT INTO `turmas` (`id`, `nome`, `periodo`) VALUES
 (1, '5-A', 'Manhã'),
-(2, '5-B', 'Tarde');
+(2, '5-B', 'Tarde'),
+(4, '6-A', 'Manhã'),
+(5, '6-B', 'Tarde');
 
 -- --------------------------------------------------------
 
@@ -97,11 +133,11 @@ INSERT INTO `turmas` (`id`, `nome`, `periodo`) VALUES
 --
 
 CREATE TABLE `usuarios` (
-  `id` int(11) NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `senha` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tipo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'auxiliar',
-  `nome` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+  `id` int NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `senha` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tipo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT 'auxiliar',
+  `nome` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -150,25 +186,25 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `aulas`
 --
 ALTER TABLE `aulas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `professores`
 --
 ALTER TABLE `professores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `turmas`
 --
 ALTER TABLE `turmas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
