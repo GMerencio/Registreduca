@@ -46,7 +46,7 @@ export class Header extends React.Component {
             <i class='bx bxs-chevron-down htmlcss-arrow arrow'></i>
             <ul class="htmlCss-sub-menu sub-menu">
               <li><a href="#">Professor</a></li>
-              <li><a href="#">Disciplina</a></li>
+              <li><a href="#">Usuário</a></li>
               <li><a href="#">Turma</a></li>
             </ul>
           </li>
@@ -57,8 +57,8 @@ export class Header extends React.Component {
           <ul class="js-sub-menu sub-menu">
             <li><a href="#">Horário de Aula</a></li>
             <li><a href="#">Lista de Professores</a></li>
-            <li><a href="#">Lista de Disciplina</a></li>
-            <li><a href="#">Lista de Turma</a></li>
+            <li><a href="#">Lista de Usuários</a></li>
+            <li><a href="#">Lista de Turmas</a></li>
           </ul>
         </li>
 
